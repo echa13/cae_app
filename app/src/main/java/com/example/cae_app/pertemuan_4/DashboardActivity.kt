@@ -1,14 +1,15 @@
 package com.example.cae_app.pertemuan_4
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.example.cae_app.R
 import com.example.cae_app.databinding.ActivityDashboardBinding
-import com.example.cae_app.pertemuan_2.HitungActivity
 import com.example.cae_app.pertemuan_3.LoginActivity
-import com.google.android.material.snackbar.Snackbar
+import com.example.cae_app.pertemuan_6.AboutFragment
+import com.example.cae_app.pertemuan_6.HomeFragment
+import com.example.cae_app.pertemuan_6.ProfileFragment
 
 class DashboardActivity : AppCompatActivity() {
 
@@ -17,48 +18,41 @@ class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 1. Pastikan Binding merujuk ke layout yang benar
+        // 1. Inisialisasi Binding
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Setup Toolbar
+        // 2. Setup Toolbar
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Bina Desa"
 
-        // 2. Ambil nama admin dari Intent atau SharedPreferences (Biar gak kosong)
-        val namaAdmin = intent.getStringExtra("USERNAME") ?: "Echa Admin"
-        // Pastikan ID tvAdmin ini ada di XML Dashboard kamu, kalau tidak ada, hapus baris bawah ini
-        // binding.tvAdmin.text = namaAdmin
-
-        // 3. Navigasi ke Hitung Activity
-        binding.btnHitung.setOnClickListener {
-            val intent = Intent(this, HitungActivity::class.java)
-            startActivity(intent)
+        // 3. SET DEFAULT FRAGMENT (Agar saat login langsung muncul HomeFragment)
+        if (savedInstanceState == null) {
+            replaceFragment(HomeFragment())
+            // Opsional: Pastikan menu Home di bawah terpilih warnanya
+            binding.bottomNavigation.selectedItemId = R.id.nav_home
         }
 
-        // 4. Navigasi ke Custom2 (Kost-kostan)
-        binding.btnWeb.setOnClickListener {
-            val intent = Intent(this, Custom2Activity::class.java)
-            intent.putExtra("TITLE", "Kost Eksklusif Bina Desa")
-            startActivity(intent)
-        }
-
-        // 5. Tombol Logout
-        binding.btnLogout.setOnClickListener {
-            showLogoutDialog()
+        // 4. Setup Navigasi Bottom Navigation
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> replaceFragment(HomeFragment())
+                R.id.nav_about -> replaceFragment(AboutFragment())
+                R.id.nav_profile -> replaceFragment(ProfileFragment())
+            }
+            true
         }
     }
 
-    private fun showLogoutDialog() {
-        AlertDialog.Builder(this)
-            .setTitle("Konfirmasi Logout")
-            .setMessage("Yakin ingin keluar?")
-            .setPositiveButton("Ya") { _, _ -> performLogout() }
-            .setNegativeButton("Tidak", null)
-            .show()
+    // Fungsi untuk memindahkan fragment ke dalam fragment_container
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
     }
 
-    private fun performLogout() {
+    // Fungsi Logout - PUBLIC agar bisa diakses ProfileFragment
+    public fun performLogout() {
         val intent = Intent(this, LoginActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)

@@ -24,7 +24,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LOKASI ASET"
+                    android:text="LOKASI Kost"
                     android:textColor="@color/desa_blue_primary"
                     android:textSize="10sp"
                     android:letterSpacing="0.1"
@@ -32,7 +32,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kecamatan Nabila ▼"
+                    android:text="Kecamatan Cha▼"
                     android:textColor="@color/desa_blue_dark"
                     android:textStyle="bold"
                     android:textSize="16sp"/>
@@ -58,7 +58,7 @@
             android:id="@+id/tvWelcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Halo Nabila, Selamat Siang! 🎉"
+            android:text="Halo Cha, Selamat Siang! 🎉"
             android:textColor="@color/text_primary"
             android:textSize="22sp"
             android:fontFamily="sans-serif-black"
@@ -69,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Pantau dan kelola aset publik desa Anda"
+            android:text="Hunian nyaman, manajemen transparan. Echa Kost hadir mengelola setiap sudut ruang dengan presisi, memastikan fasilitas terbaik untuk produktivitas dan istirahat Anda."
             android:textColor="@color/text_secondary"
             android:textSize="14sp" />
 
@@ -93,7 +93,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Cari kategori aset (Balai, Jalan...)"
+                    android:text="Cari kategori kamar "
                     android:textColor="@color/gray_text"
                     android:layout_marginStart="10dp"/>
             </LinearLayout>
@@ -109,7 +109,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Kategori Aset"
+                android:text="Kategori Kamar"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/text_primary"/>
@@ -133,7 +133,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🏛️ Bangunan"
+                    android:text="🏛️ Kamar"
                     app:backgroundTint="@color/desa_accent"
                     app:cornerRadius="20dp"
                     android:layout_marginEnd="10dp"
@@ -141,7 +141,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="🛣️ Jalanan"
+                    android:text="🛣️ Alamat"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     app:strokeColor="@color/desa_blue_primary"
                     android:textColor="@color/desa_blue_primary"
@@ -154,7 +154,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aset Prioritas"
+            android:text="Pelanggan Prioritas"
             android:textStyle="bold"
             android:textSize="18sp"
             android:textColor="@color/text_primary"
@@ -188,14 +188,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Balai Desa Serbaguna"
+                        android:text="Pengelolaan kost secara digital"
                         android:textStyle="bold"
                         android:textSize="18sp"
                         android:textColor="@color/text_primary"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pusat kegiatan masyarakat dan layanan administrasi."
+                        android:text="Pusat kost masyarakat dan layanan administrasi."
                         android:textSize="14sp"
                         android:textColor="@color/text_secondary"
                         android:layout_marginTop="4dp"/>
@@ -228,7 +228,7 @@
                     android:layout_height="60dp"
                     android:layout_marginHorizontal="20dp"
                     android:layout_marginBottom="10dp"
-                    android:text="Detail Inventaris"
+                    android:text="Detail Kost"
                     android:textColor="#FFFFFF"
                     app:backgroundTint="@color/desa_blue_primary"
                     app:cornerRadius="30dp"

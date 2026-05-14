@@ -1,12 +1,12 @@
 package com.example.cae_app.pertemuan_3
 
-import com.example.cae_app.pertemuan_6.SessionManager
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cae_app.databinding.ActivityLoginBinding
 import com.example.cae_app.pertemuan_4.DashboardActivity
+import com.example.cae_app.pertemuan_6.SessionManager
 
 class LoginActivity : AppCompatActivity() {
 
@@ -15,6 +15,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Inisialisasi View Binding
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -24,7 +25,6 @@ class LoginActivity : AppCompatActivity() {
             val pass = binding.etPassword.text.toString().trim()
 
             when {
-
                 user.isEmpty() || pass.isEmpty() -> {
                     showToast("Harap isi username dan password!")
                 }
@@ -38,16 +38,17 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 else -> {
-
-                    // SIMPAN SESSION
+                    // 1. SIMPAN SESSION (Agar tetap login saat aplikasi dibuka lagi)
                     val session = SessionManager(this)
                     session.saveLoginStatus(true, user)
 
                     showToast("Selamat Datang, $user!")
 
-                    // PINDAH KE DASHBOARD
+                    // 2. PINDAH KE DASHBOARD (Ini kuncinya! Harus ke Activity)
                     val intent = Intent(this, DashboardActivity::class.java)
                     startActivity(intent)
+
+                    // 3. SELESAIKAN LOGIN (Agar tidak kembali ke sini saat tekan tombol back)
                     finish()
                 }
             }

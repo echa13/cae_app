@@ -12,28 +12,29 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Menggunakan View Binding
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Ambil data dengan nilai default untuk mencegah tampilan kosong
-        val name = intent.getStringExtra("USERNAME") ?: "User"
-        val desc = intent.getStringExtra("DESC") ?: "Deskripsi tidak tersedia"
+        // 1. Ambil data dari Intent
+        // Di HomeFragment tadi kita kirim "USERNAME", di sini kita terima
+        val name = intent.getStringExtra("USERNAME") ?: "Penghuni"
 
-        // 2. Set ke tampilan
-        // Kamu bisa menggunakan template string seperti ini
-        binding.tvWelcome.text = "Halo $name, Selamat Siang! 🎉"
-        binding.tvDesc.text = desc
+        // 2. Set Teks ke UI (Menyesuaikan Tema Kost)
+        binding.tvWelcome.text = "Detail Kamar VIP - 01"
+        binding.tvDesc.text = "Halo $name, kamar ini memiliki fasilitas lengkap seperti AC, WiFi, Kamar Mandi Dalam, dan Kasur Queen Size. Lokasi strategis dekat dengan pusat kota."
 
-        // 3. Tombol pesan
+        // 3. Tombol Booking / Pesan Kamar
         binding.btnPesanPaket.setOnClickListener {
-            showToast("Pesanan diproses 🍱")
+            showToast("Permintaan Booking terkirim ke Ibu Kost! 🏠")
         }
+
+        // 4. Tombol Kembali
         binding.btnBackToDashboard.setOnClickListener {
-            finish()
+            finish() // Menutup halaman ini dan balik ke Dashboard
         }
     }
 
-    // Fungsi pembantu agar kode lebih bersih
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
