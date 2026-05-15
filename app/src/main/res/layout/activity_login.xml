@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/desa_blue_light">
@@ -34,24 +33,22 @@
 
             <ImageView
                 android:id="@+id/ivLogo"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/logo" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/kos" /> <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="sans-serif-black"
+            android:text="ECHA KOST"
+            android:textColor="@color/desa_blue_dark"
+            android:textSize="28sp"
+            android:letterSpacing="0.1" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:fontFamily="sans-serif-black"
-                android:text="BINA DESA"
-                android:textColor="@color/desa_blue_dark"
-                android:textSize="28sp"
-                android:letterSpacing="0.1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Silakan masuk untuk melanjutkan"
+                android:text="Manajemen kost profesional dan nyaman"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp" />
 
@@ -59,9 +56,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
                 app:cardBackgroundColor="@color/white"
                 app:cardCornerRadius="30dp"
-                app:cardElevation="0dp"
+                app:cardElevation="8dp"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -135,6 +133,27 @@
                         android:textAllCaps="true"
                         android:textStyle="bold"
                         app:cornerRadius="15dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="atau"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/text_secondary"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnRegisterGmail"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="16dp"
+                        android:text="Register With Gmail"
+                        android:textColor="@color/desa_blue_primary"
+                        app:strokeColor="@color/desa_blue_primary"
+                        app:cornerRadius="15dp"
+                        app:icon="@android:drawable/ic_menu_send"
+                        app:iconGravity="textStart"/>
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
